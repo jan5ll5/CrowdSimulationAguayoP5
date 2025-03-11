@@ -18,7 +18,12 @@ public class AIControl : MonoBehaviour
         int i = Random.Range(0, goalLocations.Length);
         agent.SetDestination(goalLocations[i].transform.position);
         anim = this.GetComponent<Animator>();
+        anim.SetFloat("wOffset", Random.Range(0, 1));
         anim.SetTrigger("isWalking");
+        float sm = Random.Range(0.5f, 1.5f);
+        anim.SetFloat("speedMult", sm);
+        agent.speed *= sm;
+
     }
 
 
